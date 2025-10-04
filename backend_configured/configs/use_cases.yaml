@@ -1,0 +1,137 @@
+# ==============================================================================
+# USE CASE CONFIGURATION - The main control panel for business users.
+# ==============================================================================
+use_cases:
+  story_generator:
+    display_name: "Creative Story Generator"
+    description: "Generates a complete, well-structured story based on a topic."
+    enabled: true
+    content_type: "story"  # Define content type for universal content_generator
+    output_structure: "formatted_story"
+    settings:
+      image_generation:
+        enabled: true
+        count: 3
+        output_folder: "story_images"
+        style: "Studio Ghibli"
+        aesthetic: "cartoony, cute, watercolor-like"
+        aspect_ratio: "16:9"
+        composition_guide: "centered subject with adequate margins, responsive layout"
+      story_length_constraints:
+        short:    # Quick Tale - Concise & Focused
+          word_count: 250    # 200-300 words total
+          words_per_chapter: 65  # ≤65 words per chapter (1-2 SHORT paragraphs) - ULTRA STRICT
+          paragraphs_per_chapter: "1-2 SHORT"
+          reading_time: 3
+        medium:   # Adventure Story - Balanced
+          word_count: 400    # 350-450 words total
+          words_per_chapter: 115 # ≤115 words per chapter (2-3 MODERATE paragraphs) - ULTRA STRICT
+          paragraphs_per_chapter: "2-3 MODERATE"
+          reading_time: 5
+        long:     # Epic Journey - Rich Detail
+          word_count: 600    # 550-650 words total
+          words_per_chapter: 180 # ≤180 words per chapter (3-4 paragraphs) - ULTRA STRICT
+          paragraphs_per_chapter: "3-4 FULL"
+          reading_time: 8
+    agents:
+      - name: "planner"
+        enabled: true
+        prompt_key: "story_planner_prompt"
+      - name: "content_generator"  # Use universal content_generator instead of separate writer
+        enabled: true
+        prompt_key: "content_generator"
+      - name: "critique"
+        enabled: true
+        prompt_key: "critique_prompt"
+        edge_type: "conditional"
+        routing_map:
+          "revise": "content_generator"  # Route back to content_generator for revisions
+          "end": "image_generator"
+      - name: "image_generator"
+        enabled: true
+        prompt_key: "image_gen_prompt"
+
+  poetry_and_song:
+    display_name: "Poetry and Song Book"
+    description: "Creates poetry and songs with a focus on rhythm and rhyme."
+    enabled: true
+    content_type: "poetry_and_music"  # Define content type for universal content_generator  
+    output_structure: "formatted_content"
+    settings:
+      image_generation:
+        enabled: true
+        count: 2
+        output_folder: "poetry_images"
+        style: "whimsical cartoon"
+        aesthetic: "colorful, playful, child-friendly"
+        aspect_ratio: "4:3"
+        composition_guide: "centered subject with adequate margins, responsive layout"
+    agents:
+      - name: "planner"
+        enabled: true
+        prompt_key: "planner"
+      - name: "content_generator"  # Use universal content_generator instead of separate poetry/music agents
+        enabled: true
+        prompt_key: "content_generator"
+      - name: "critique"
+        enabled: true
+        prompt_key: "critique_prompt"
+        edge_type: "conditional"
+        routing_map:
+          "revise": "content_generator"  # Route back to content_generator for revisions
+          "end": "image_generator"
+      - name: "image_generator"
+        enabled: true
+        prompt_key: "image_generator"
+
+  educational_content:
+    display_name: "Educational Learning Stories"
+    description: "Creates educational content that teaches while entertaining"
+    enabled: true
+    content_type: "educational"  # New content type
+    output_structure: "formatted_story"
+    settings:
+      learning_objectives: true
+      fact_checking: true
+      assessment_questions: true
+      image_generation:
+        enabled: true
+        count: 4
+        output_folder: "educational_images"
+        style: "educational illustration"
+        aesthetic: "bright, colorful, educational, child-friendly"
+        aspect_ratio: "16:9"
+        composition_guide: "centered subject with adequate margins, educational layout"
+      story_length_constraints:
+        short:    # Quick Lesson - Focused Learning
+          word_count: 300    # 250-350 words total
+          words_per_chapter: 75  # ≤75 words per chapter (educational focus)
+          paragraphs_per_chapter: "1-2 SHORT"
+          reading_time: 4
+        medium:   # Learning Adventure - Balanced Education
+          word_count: 500    # 450-550 words total
+          words_per_chapter: 125 # ≤125 words per chapter (detailed learning)
+          paragraphs_per_chapter: "2-3 MODERATE"
+          reading_time: 7
+        long:     # Deep Learning Journey - Comprehensive Education
+          word_count: 750    # 700-800 words total
+          words_per_chapter: 187 # ≤187 words per chapter (thorough explanation)
+          paragraphs_per_chapter: "3-4 FULL"
+          reading_time: 10
+    agents:
+      - name: "planner"
+        enabled: true
+        prompt_key: "educational_planner"  # Specialized educational planner
+      - name: "content_generator"  # Same universal content_generator
+        enabled: true
+        prompt_key: "content_generator"
+      - name: "critique"
+        enabled: true
+        prompt_key: "educational_critique"  # Educational-focused critique
+        edge_type: "conditional"
+        routing_map:
+          "revise": "content_generator"
+          "end": "image_generator"
+      - name: "image_generator"
+        enabled: true
+        prompt_key: "image_generator"

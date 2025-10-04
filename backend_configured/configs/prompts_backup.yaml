@@ -1,0 +1,807 @@
+# Enhanced Prompts Configuration 2025
+# Advanced AI Story, Poetry, Educational Content & Image Generation
+# Version: 3.0 - Production Ready with Latest Techniques
+
+# ====================================================================
+# STORY GENERATION PROMPTS - Enhanced with 2025 Techniques
+# ====================================================================
+
+planner:
+  system_prompt: |
+    You are an elite AI story architect specializing in personalized children's narratives.
+    You employ advanced 2025 prompt engineering techniques including Chain-of-Thought reasoning,
+    Tree-of-Thought exploration, and Progressive Scaffolding to create exceptional story plans.
+    
+    CORE CAPABILITIES:
+    - Deep personalization using child psychology and developmental frameworks
+    - Cultural authenticity through researched integration
+    - Educational value seamlessly woven into entertainment
+    - Multi-path narrative exploration for optimal engagement
+    
+    CRITICAL: Generate ONLY valid JSON output. No additional text or markdown.
+
+  user_prompt: |
+      Create a comprehensive story plan using advanced narrative techniques.
+
+      === PERSONALIZATION DATA ===
+      Child Profile:
+      - Name: {child_name} [HERO/PROTAGONIST]
+      - Age: {child_age} | Gender: {child_gender}
+      - Interests: {interests}
+      - Reading Level: {reading_level}
+      - Companions: {companions}
+      
+      Cultural Context:
+      - Location: {location} | Region: {region}
+      - Mother Tongue: {mother_tongue}
+      - Story Language: {language_of_story}
+      
+      Story Parameters:
+      - Theme: {theme} | Moral: {moral_lesson}
+      - Educational Goals: {educational_themes}
+      - Target Word Count: {word_count}
+      - User Request: "{user_input}"
+      
+      === PLANNING INSTRUCTIONS ===
+      
+      Apply CHAIN-OF-THOUGHT process:
+      1. Analyze child's developmental stage → 
+      2. Select age-appropriate complexity →
+      3. Design cultural integration →
+      4. Plan educational moments →
+      5. Structure narrative arc
+      
+      Apply TREE-OF-THOUGHT exploration:
+      Consider 3 narrative paths, evaluate each:
+      - Path A: Adventure-focused (external conflict)
+      - Path B: Relationship-focused (internal growth)
+      - Path C: Discovery-focused (learning journey)
+      Select optimal path based on child profile.
+      
+      Generate JSON with these keys:
+      {
+        "title": "[Compelling title featuring {child_name}]",
+        "logline": "[One-sentence hook]",
+        "characters": [
+          {
+            "name": "{child_name}",
+            "role": "protagonist",
+            "description": "[Personality matching interests]",
+            "visual_appearance": "[Detailed: age, features, clothing, expressions]",
+            "character_arc": "[Growth journey]"
+          }
+        ],
+        "setting": {
+          "location": "[Authentic {location} details]",
+          "cultural_elements": "[Specific to {region}]",
+          "visual_atmosphere": "[Mood, colors, textures]"
+        },
+        "plot_structure": {
+          "act_1_setup": "[Hook with {child_name} in familiar world]",
+          "act_2_confrontation": "[Challenge requiring growth]",
+          "act_3_resolution": "[Victory emphasizing {moral_lesson}]",
+          "story_beats": "[Key moments for illustration]"
+        },
+        "personalization_integration": {
+          "interest_elements": "[How {interests} shape the world]",
+          "cultural_authenticity": "[Specific traditions/values]",
+          "language_integration": "[{mother_tongue} words to include]",
+          "companion_roles": "[Meaningful involvement]"
+        },
+        "educational_framework": {
+          "learning_objectives": "[Age-appropriate goals]",
+          "knowledge_integration": "[Natural teaching moments]",
+          "skill_development": "[What child will practice]"
+        },
+        "visual_guidelines": {
+          "art_style": "[Recommended aesthetic]",
+          "color_palette": "[Emotional colors]",
+          "key_scenes": "[Moments for illustration]"
+        },
+        "metadata": {
+          "reading_time": "[Estimated minutes]",
+          "vocabulary_level": "[Complexity rating]",
+          "engagement_hooks": "[Interactive elements]"
+        }
+      }
+
+writer:
+  system_prompt: |
+      You are a master storyteller who creates deeply personalized narratives using advanced
+      2025 techniques including Self-Consistency checking, Emotional Scaffolding, and
+      Multi-Sensory Description. You write EXCLUSIVELY in the specified language.
+      
+      EXPERTISE:
+      - Developmental psychology for age-appropriate content
+      - Cultural authenticity and respectful representation
+      - Educational integration without sacrificing engagement
+      - Persona-based voice adaptation for target audience
+      
+      CRITICAL: Write ENTIRE story in {language_of_story}. No language mixing.
+
+    user_prompt: |
+      Transform this plan into a captivating, personalized story.
+
+      === STORY BLUEPRINT ===
+      {plan}
+      
+      === PERSONALIZATION REQUIREMENTS ===
+      Hero: {child_name} (Age {child_age}, {gender})
+      Interests: {interests} [Build world around these]
+      Companions: {companions} [Supporting roles only]
+      Setting: {location}, {region}
+      Languages: Story in {language_of_story}, sprinkle {mother_tongue}
+      Reading Level: {reading_level}
+      Target Length: {word_count} words
+      
+      === ADVANCED WRITING TECHNIQUES ===
+      
+      1. PROGRESSIVE COMPLEXITY:
+         - Start simple, build sophistication gradually
+         - Match sentence complexity to {reading_level}
+         - Introduce new concepts with scaffolding
+      
+      2. EMOTIONAL INTELLIGENCE:
+         - Model emotional regulation through characters
+         - Include feelings vocabulary for {age_group}
+         - Show empathy and problem-solving
+      
+      3. SENSORY IMMERSION:
+         - Engage all five senses in descriptions
+         - Use culturally authentic sensory details
+         - Create "mental movies" for young readers
+      
+      4. INTERACTIVE MOMENTS:
+         - Natural pause points for discussion
+         - Prediction opportunities
+         - "What would you do?" moments
+      
+      5. CULTURAL WEAVING:
+         - Authentic {region} elements throughout
+         - Natural {mother_tongue} word integration (5-10 words)
+         - Respectful tradition representation
+      
+      === OUTPUT REQUIREMENTS ===
+      - Complete story in {language_of_story}
+      - {word_count} words distributed across {image_count} sections
+      - Rich visual descriptions for illustration
+      - Age-appropriate vocabulary and themes
+      - Educational elements naturally integrated
+      - Clear story arc with satisfying resolution
+
+critique:
+  system_prompt: |
+      You are an expert children's literature evaluator using 2025's advanced assessment
+      techniques including Contrastive Analysis, Multi-Perspective Evaluation, and
+      Developmental Appropriateness Scoring.
+      
+      EVALUATION FRAMEWORK:
+      - Safety and appropriateness assessment
+      - Educational value measurement
+      - Engagement prediction modeling
+      - Cultural sensitivity analysis
+      
+      Output ONLY valid JSON critique.
+
+    user_prompt: |
+      Evaluate this story using comprehensive quality metrics.
+
+      === EVALUATION CONTEXT ===
+      Target Age: {age_group}
+      Original Plan: {plan}
+      Story Content: {content}
+      
+      === ASSESSMENT CRITERIA ===
+      
+      Apply MULTI-PERSPECTIVE analysis:
+      1. Child's view (engagement, understanding)
+      2. Parent's view (safety, values, education)
+      3. Educator's view (learning outcomes, development)
+      4. Cultural view (authenticity, respect)
+      
+      Generate JSON evaluation:
+      {
+        "overall_score": [1-10],
+        "executive_summary": "[Key findings]",
+        "strengths": [
+          "[Specific positive elements]"
+        ],
+        "improvements": [
+          "[Actionable suggestions]"
+        ],
+        "detailed_assessment": {
+          "developmental_appropriateness": {
+            "score": [1-10],
+            "analysis": "[Age-appropriate complexity, themes, vocabulary]"
+          },
+          "engagement_potential": {
+            "score": [1-10],
+            "analysis": "[Hook strength, pacing, interest sustainability]"
+          },
+          "educational_value": {
+            "score": [1-10],
+            "analysis": "[Learning integration, skill development]"
+          },
+          "cultural_authenticity": {
+            "score": [1-10],
+            "analysis": "[Respectful representation, accuracy]"
+          },
+          "safety_compliance": {
+            "score": [1-10],
+            "analysis": "[Content appropriateness, emotional safety]"
+          },
+          "personalization_success": {
+            "score": [1-10],
+            "analysis": "[Child-specific element integration]"
+          },
+          "word_count_efficiency": {
+            "score": [1-10],
+            "analysis": "[Target vs actual, narrative completeness]"
+          }
+        },
+        "predictive_metrics": {
+          "child_enjoyment": "[Likelihood percentage]",
+          "educational_impact": "[Expected learning gains]",
+          "retention_rate": "[Memory persistence prediction]"
+        },
+        "recommendations": {
+          "immediate": "[Quick fixes]",
+          "future": "[Long-term improvements]"
+        }
+      }
+
+# ====================================================================
+# IMAGE GENERATION PROMPTS - State-of-the-Art 2025 Techniques
+# ====================================================================
+
+image_generator:
+  system_prompt: |
+      You are an elite AI visual prompt engineer specializing in children's content imagery.
+      You create hyper-detailed, emotionally resonant, culturally authentic image prompts
+      using 2025's most advanced techniques for consistent, stunning visual generation.
+      
+      EXPERTISE:
+      - Child psychology and age-appropriate visual design
+      - Cultural visual authenticity and respectful representation
+      - Technical prompt optimization for multiple AI models
+      - Composition and cinematography for children's content
+      
+      TECHNIQUES:
+      - Layered detail building (subject → context → atmosphere → technical)
+      - Negative prompt optimization for quality control
+      - Style consistency tokens for series coherence
+      - Emotional atmosphere engineering
+
+    user_prompt: |
+      Create a masterful image generation prompt for this scene.
+
+      === SCENE CONTEXT ===
+      Content Type: {content_type}
+      Target Age: {age_group}
+      Scene Description: {content}
+      Cultural Setting: {region}
+      
+      === CHARACTER REFERENCE ===
+      From Story Plan: {plan}
+      Main Character: {child_name}
+      Visual Details: [Extract from plan.characters]
+      
+      === ADVANCED PROMPT STRUCTURE ===
+      
+      Build prompt using LAYERED TECHNIQUE:
+      
+      LAYER 1 - CORE SUBJECT:
+      "[Character name], [age]-year-old [gender], [primary action/pose]"
+      
+      LAYER 2 - CHARACTER DETAILS:
+      "CHARACTER: [specific features from plan], [clothing], [expression matching scene emotion], 
+      [body language], [cultural dress elements if applicable]"
+      
+      LAYER 3 - ENVIRONMENT:
+      "SETTING: [location from plan], [cultural architecture/elements], [time of day],
+      [weather/atmosphere], [props related to interests], [background depth]"
+      
+      LAYER 4 - ARTISTIC DIRECTION:
+      "STYLE: {aesthetic}, children's book illustration, [specific art movement if relevant],
+      warm and inviting, age-appropriate wonder"
+      
+      LAYER 5 - TECHNICAL EXCELLENCE:
+      "TECHNICAL: masterpiece quality, ultra-detailed, 4K resolution, perfect composition,
+      golden ratio, sharp focus, professional lighting, {aspect_ratio}"
+      
+      LAYER 6 - EMOTIONAL ATMOSPHERE:
+      "MOOD: [emotion from scene], [color psychology for age group], [lighting mood],
+      child-safe and positive, culturally respectful"
+      
+      LAYER 7 - QUALITY CONTROL:
+      "ENHANCE: vibrant colors, intricate details, beautiful rendering, consistent character design"
+      
+      NEGATIVE PROMPT (CRITICAL):
+      "--no scary imagery, violence, inappropriate content, anatomical errors, age inconsistency,
+      cultural stereotypes, dark themes, blurry, low quality, text, watermarks"
+      
+      === OUTPUT FORMAT ===
+      
+      PRIMARY PROMPT:
+      [Complete layered prompt with all elements integrated]
+      
+      STYLE VARIATIONS:
+      1. [Watercolor version]
+      2. [Digital painting version]
+      3. [Soft illustration version]
+      
+      TECHNICAL SPECS:
+      - Aspect Ratio: {aspect_ratio}
+      - Composition: {composition_guide}
+      - Color Palette: [Age-appropriate colors]
+      - Lighting: [Specific lighting setup]
+
+# ====================================================================
+# EDUCATIONAL CONTENT PROMPTS - Advanced Learning Design
+# ====================================================================
+
+educational_planner:
+  system_prompt: |
+      You are an expert educational content architect using 2025's most advanced
+      learning design principles including Inquiry-Based Learning, Culturally
+      Responsive Pedagogy, and Universal Design for Learning (UDL).
+      
+      FRAMEWORKS:
+      - Bloom's Taxonomy integration for cognitive development
+      - Multiple Intelligence accommodation
+      - Social-Emotional Learning (SEL) integration
+      - STEAM approach for interdisciplinary learning
+      
+      Generate ONLY valid JSON output.
+
+    user_prompt: |
+      Design a comprehensive educational experience plan.
+
+      === LEARNER PROFILE ===
+      Student: {child_name} (Age {child_age})
+      Learning Style: {learning_style}
+      Interests: {interests}
+      Cultural Background: {cultural_background}
+      
+      === EDUCATIONAL PARAMETERS ===
+      Subject: {theme}
+      Learning Objectives: {educational_themes}
+      Content Language: {language_of_story}
+      Duration: {word_count} words
+      
+      === ADVANCED PLANNING PROCESS ===
+      
+      Apply INQUIRY CYCLE:
+      1. Wonder (spark curiosity)
+      2. Investigate (guided discovery)
+      3. Create (apply learning)
+      4. Share (demonstrate understanding)
+      5. Reflect (metacognition)
+      
+      Generate JSON plan:
+      {
+        "title": "[Engaging educational title with {child_name}]",
+        "learning_overview": "[Brief description]",
+        "learner_profile": {
+          "name": "{child_name}",
+          "developmental_stage": "[Cognitive level]",
+          "learning_preferences": "[Extracted from profile]"
+        },
+        "learning_objectives": {
+          "primary": "[Main learning goal]",
+          "secondary": "[Supporting objectives]",
+          "skills": "[21st century skills developed]"
+        },
+        "curriculum_alignment": {
+          "standards": "[Age-appropriate standards]",
+          "competencies": "[Skills and knowledge]"
+        },
+        "learning_journey": {
+          "hook": "[Attention-grabbing introduction]",
+          "exploration": "[Discovery activities]",
+          "application": "[Hands-on practice]",
+          "assessment": "[Natural evaluation moments]",
+          "extension": "[Advanced challenges]"
+        },
+        "cultural_integration": {
+          "connections": "[Links to {cultural_background}]",
+          "examples": "[Culturally relevant scenarios]",
+          "perspectives": "[Multiple viewpoints]"
+        },
+        "differentiation": {
+          "scaffolds": "[Support structures]",
+          "challenges": "[Extension activities]",
+          "accommodations": "[Learning style adaptations]"
+        },
+        "engagement_strategies": {
+          "gamification": "[Game elements]",
+          "storytelling": "[Narrative integration]",
+          "interaction": "[Participation opportunities]"
+        },
+        "assessment_plan": {
+          "formative": "[During learning checks]",
+          "summative": "[Final demonstration]",
+          "self_assessment": "[Reflection tools]"
+        }
+      }
+
+educational_writer:
+  system_prompt: |
+      You are a master educational content creator who transforms learning objectives
+      into engaging, story-driven educational experiences using 2025's best practices
+      in edutainment and experiential learning.
+      
+      TECHNIQUES:
+      - Narrative-based learning for engagement
+      - Scaffolded complexity for progressive understanding
+      - Multi-modal content for diverse learners
+      - Culturally responsive examples and contexts
+      
+      Write ENTIRELY in {language_of_story}.
+
+    user_prompt: |
+      Create engaging educational content from this plan.
+
+      === EDUCATIONAL BLUEPRINT ===
+      {plan}
+      
+      === LEARNER CONTEXT ===
+      Student Hero: {child_name}
+      Age/Grade: {child_age}
+      Interests: {interests}
+      Learning Style: {learning_style}
+      
+      === CONTENT CREATION GUIDELINES ===
+      
+      1. NARRATIVE INTEGRATION:
+         - Embed learning in story context
+         - {child_name} as protagonist discovering knowledge
+         - Real-world problem-solving scenarios
+      
+      2. PROGRESSIVE COMPLEXITY:
+         - Start with prior knowledge activation
+         - Build concepts incrementally
+         - Include checkpoint understanding
+      
+      3. INTERACTIVE LEARNING:
+         - "Try this" moments
+         - Prediction opportunities
+         - Hands-on experiments/activities
+      
+      4. CULTURAL RELEVANCE:
+         - Examples from {cultural_background}
+         - Local context connections
+         - Global perspective integration
+      
+      5. ASSESSMENT INTEGRATION:
+         - Self-check questions
+         - Application challenges
+         - Reflection prompts
+      
+      Output complete educational content in {language_of_story}.
+
+# ====================================================================
+# POETRY & MUSIC PROMPTS - Creative Expression
+# ====================================================================
+
+poetry_generator:
+  system_prompt: |
+      You are a gifted children's poet using advanced 2025 techniques in rhythm,
+      rhyme, and cultural verse patterns to create memorable, educational poetry.
+      
+      EXPERTISE:
+      - Developmental phonological awareness
+      - Cultural poetry traditions
+      - Memory enhancement through rhythm
+      - Multi-sensory poetic imagery
+
+    user_prompt: |
+      Create beautiful, age-appropriate poetry.
+
+      === POET PROFILE ===
+      Young Poet: {child_name} (Age {child_age})
+      Cultural Heritage: {cultural_background}
+      Language: {language_of_story}
+      Interests: {interests}
+      
+      === POETRY PARAMETERS ===
+      Theme: {topic}
+      Style: {poetry_style}
+      Length: {poem_length}
+      Educational Focus: {educational_goals}
+      
+      === POETIC TECHNIQUES ===
+      
+      1. RHYTHMIC SCAFFOLDING:
+         Ages 3-5: Simple ABAB, repetitive refrains
+         Ages 6-8: Complex patterns, narrative verse
+         Ages 9-12: Free verse options, metaphor
+      
+      2. CULTURAL PATTERNS:
+         - Traditional {cultural_background} verse forms
+         - Cultural rhythm and meter
+         - Indigenous poetic elements
+      
+      3. MEMORY OPTIMIZATION:
+         - Repetition for retention
+         - Rhyme for recall
+         - Rhythm for recitation
+      
+      4. SENSORY LANGUAGE:
+         - Visual imagery
+         - Sound patterns (alliteration, assonance)
+         - Texture and movement words
+      
+      5. INTERACTIVE ELEMENTS:
+         - Call and response sections
+         - Action verses
+         - Sing-along potential
+      
+      Create poetry in {language_of_story} that {child_name} will treasure.
+
+music_generator:
+  system_prompt: |
+      You are an innovative children's music creator combining traditional cultural
+      music with modern educational songwriting techniques.
+      
+      EXPERTISE:
+      - Developmental music cognition
+      - Cultural music traditions
+      - Educational song integration
+      - Participatory music design
+
+    user_prompt: |
+      Create an engaging, educational song.
+
+      === MUSICIAN PROFILE ===
+      Young Musician: {child_name}
+      Cultural Background: {cultural_background}
+      Musical Interests: {musical_interests}
+      
+      === SONG PARAMETERS ===
+      Theme: {theme}
+      Style: {musical_style}
+      Educational Goals: {educational_goals}
+      Cultural Elements: {cultural_elements}
+      
+      === SONG STRUCTURE ===
+      
+      1. VERSE-CHORUS PATTERN:
+         - Simple, memorable melody line
+         - Repetitive, catchy chorus
+         - Educational verses
+      
+      2. CULTURAL INTEGRATION:
+         - Traditional {cultural_background} rhythms
+         - Cultural instruments mentioned
+         - Cultural musical patterns
+      
+      3. INTERACTIVE ELEMENTS:
+         - Clapping patterns
+         - Call and response
+         - Movement suggestions
+      
+      4. EDUCATIONAL EMBEDDING:
+         - Concept reinforcement in chorus
+         - Story progression in verses
+         - Memory aids through melody
+      
+      Output complete song with:
+      - Lyrics
+      - Structure notation
+      - Performance suggestions
+      - Cultural instrument ideas
+
+# ====================================================================
+# CONTENT GENERATION & FORMATTING - Universal Pipeline
+# ====================================================================
+
+content_generator:
+  system_prompt: |
+    You are a versatile content creator using 2025's most advanced techniques
+    to generate and format content across all types (story, poetry, educational).
+    You adapt your approach based on content_type while maintaining consistent
+    quality and personalization.
+    
+    CRITICAL: Output ONLY valid JSON. Write content in {language_of_story}.
+
+  user_prompt: |
+    Generate complete, formatted content with image prompts.
+
+    === CONTENT PARAMETERS ===
+    Type: {content_type}
+    Plan: {plan}
+    Target Words: {word_count}
+    Chapters/Sections: {image_count}
+    Words per Section: {words_per_page}
+    
+    === PERSONALIZATION ===
+    Hero: {child_name}
+    Profile: Age {child_age}, {interests}
+    Culture: {cultural_background}
+    Language: {language_of_story}
+    
+    === ADAPTIVE GENERATION ===
+    
+    FOR STORY:
+    - Narrative arc with character development
+    - Dialogue and action sequences
+    - Descriptive world-building
+    
+    FOR POETRY:
+    - Rhythmic verse with proper line breaks
+    - NO labels (Verse 1, Chorus)
+    - Natural flow with stanza separation
+    
+    FOR EDUCATIONAL:
+    - Concept introduction and exploration
+    - Examples and applications
+    - Knowledge checks and activities
+    
+    === STRICT WORD CONTROL ===
+    - EXACTLY {words_per_page} words per section
+    - Count EVERY word including articles
+    - Contractions = expanded count
+    - Cut content if approaching limit
+    
+    === IMAGE PROMPT REQUIREMENTS ===
+    Generate {image_count} prompts using:
+    
+    PERSONALIZATION EXTRACTION:
+    - Character details from plan.characters
+    - Setting elements from plan.setting
+    - Cultural details from plan.cultural_elements
+    - Interest integration from plan.personalization_elements
+    
+    PROMPT STRUCTURE:
+    [SHOT TYPE] of [CHARACTER WITH EXACT DESCRIPTION FROM PLAN],
+    [SPECIFIC ACTION FROM CHAPTER] in [SETTING FROM PLAN].
+    
+    DETAILS: [Age-appropriate features], [cultural elements],
+    [emotion from scene], [interest-based props].
+    
+    TECHNICAL: {aesthetic}, masterpiece, ultra-detailed,
+    {aspect_ratio}, child-safe, culturally authentic.
+    
+    NEGATIVE: --no inappropriate content, age mismatch,
+    cultural stereotypes, scary elements.
+    
+    === JSON OUTPUT ===
+    {
+      "formatted_content": {
+        "title": "[Enhanced title]",
+        "summary": "[2-3 sentence preview]",
+        "reading_time": [minutes],
+        "sections": [
+          {
+            "title": "[Section title]",
+            "content": "[EXACTLY {words_per_page} words]",
+            "type": "[story|poetry|educational]",
+            "scene_description": "[Visual scene summary]"
+          }
+        ],
+        "word_count": [total],
+        "metadata": {
+          "themes": [],
+          "characters": [],
+          "educational_value": "[Learning outcomes]"
+        }
+      },
+      "image_prompts": [
+        "[Detailed, personalized prompt for section 1]",
+        "[Detailed, personalized prompt for section 2]"
+      ]
+    }
+
+# ====================================================================
+# ADVANCED CONFIGURATION - System Settings
+# ====================================================================
+
+system_configuration:
+  prompt_techniques:
+    - chain_of_thought: "Step-by-step logical reasoning"
+    - tree_of_thought: "Multiple path exploration and selection"
+    - self_consistency: "Multiple reasoning paths for accuracy"
+    - progressive_scaffolding: "Gradual complexity building"
+    - reflection_loops: "Self-critique and improvement"
+    - decomposition: "Breaking complex tasks into subtasks"
+    - few_shot_learning: "Pattern recognition from examples"
+    - persona_adaptation: "Voice and style matching"
+    - context_engineering: "RAG and knowledge integration"
+    - meta_prompting: "Prompt self-generation and optimization"
+  
+  quality_controls:
+    content_safety:
+      - age_appropriate_themes: true
+      - violence_filter: strict
+      - emotional_safety: monitored
+      - cultural_sensitivity: enforced
+      
+    technical_standards:
+      - json_validation: required
+      - word_count_precision: enforced
+      - language_consistency: strict
+      - character_consistency: maintained
+      
+    educational_standards:
+      - learning_objective_alignment: verified
+      - developmental_appropriateness: checked
+      - skill_progression: tracked
+      - assessment_integration: included
+  
+  image_generation:
+    models_supported:
+      - dalle3: "Best for realistic, detailed scenes"
+      - midjourney: "Best for artistic, stylized content"
+      - stable_diffusion: "Best for customization and control"
+      - flux: "Best for consistency across series"
+    
+    optimization_settings:
+      default_quality: "masterpiece, ultra-detailed, 4K"
+      child_safety: "always enforced"
+      cultural_respect: "mandatory"
+      style_consistency: "token-based tracking"
+      
+  personalization_engine:
+    core_variables:
+      - child_name: "Protagonist identifier"
+      - child_age: "Developmental stage determinant"
+      - cultural_background: "Heritage and tradition source"
+      - interests: "World-building foundation"
+      - learning_style: "Content adaptation guide"
+      
+    advanced_features:
+      - dynamic_complexity: "Auto-adjust based on age"
+      - cultural_integration: "Authentic representation"
+      - interest_weaving: "Natural incorporation"
+      - companion_roles: "Supporting cast development"
+      - emotional_tracking: "Sentiment progression"
+  
+  output_formats:
+    story: 
+      structure: "chapters"
+      illustrations: "per_chapter"
+      interaction: "pause_points"
+      
+    poetry:
+      structure: "stanzas"
+      formatting: "line_breaks_preserved"
+      rhythm: "age_appropriate"
+      
+    educational:
+      structure: "learning_segments"
+      assessment: "integrated"
+      activities: "hands_on"
+      
+    music:
+      structure: "verse_chorus"
+      notation: "simplified"
+      participation: "interactive"
+
+# ====================================================================
+# PERFORMANCE METRICS - Success Tracking
+# ====================================================================
+
+performance_metrics:
+  quality_indicators:
+    - personalization_score: "Child-specific element density"
+    - cultural_authenticity: "Accurate representation rating"
+    - educational_value: "Learning objective achievement"
+    - engagement_prediction: "Attention retention estimate"
+    - safety_compliance: "Content appropriateness score"
+    
+  optimization_targets:
+    - word_count_accuracy: "±5% tolerance"
+    - image_prompt_quality: "90%+ relevance score"
+    - cultural_representation: "100% respectful"
+    - educational_integration: "Seamless embedding"
+    - child_engagement: "High prediction confidence"
+    
+  continuous_improvement:
+    - feedback_integration: "User ratings analyzed"
+    - prompt_evolution: "Technique updates monthly"
+    - safety_updates: "Real-time moderation improvements"
+    - cultural_database: "Expanding knowledge base"
+    - educational_alignment: "Curriculum standard tracking"
+
+# End of Enhanced Prompts Configuration 2025

@@ -1,0 +1,285 @@
+# /mnt/c/Users/Nikhil/Desktop/story-generation-app/AI-story-generator-product/backend_configured/configs/prompts.yaml
+# Enhanced Prompts for Composer Agents
+
+# Note: Use {variable_name} for placeholders that will be replaced by the application.
+# Example: {user_input}, {age_group}, {plan}, etc.
+
+planner:
+  system_prompt: >
+    You are an expert story planner for children's content. Your role is to create a detailed, structured, and imaginative blueprint for a story.
+    You must generate a response in valid JSON format. The JSON object should be well-formed and ready for parsing.
+    Ensure the plan is creative, age-appropriate, and incorporates educational themes seamlessly.
+
+  user_prompt: >
+    Please create a detailed story plan based on the following user request.
+
+    **User Request:** "{user_input}"
+
+    **Target Age Group:** {age_group}
+    **Educational Themes:** {educational_themes}
+
+    **Instructions:**
+    Generate a comprehensive JSON object with the following keys. Do not add any text before or after the JSON object.
+
+    1.  `title`: A captivating and imaginative title for the story.
+    2.  `logline`: A one-sentence summary of the story.
+    3.  `characters`: An array of main characters. Each character should be an object with:
+        *   `name`: Character's name.
+        *   `description`: A brief description of their personality, appearance, and role in the story.
+    4.  `setting`: A detailed description of the story's primary location and time period. Describe the atmosphere and key sensory details.
+    5.  `plot_outline`: A structured outline with three acts:
+        *   `act_1_setup`: Introduce the main characters, the setting, and the initial conflict or goal.
+        *   `act_2_confrontation`: Describe the main challenges, obstacles, and adventures. Build tension and character development.
+        *   `act_3_resolution`: Explain how the conflict is resolved, the lessons learned, and the story's conclusion.
+    6.  `educational_opportunities`: A list of specific, actionable ideas on how to weave the educational themes into the narrative.
+    7.  `theme_and_message`: The central themes (e.g., friendship, courage) and the key message or moral of the story.
+    8.  `tone_and_style`: The desired tone (e.g., whimsical, adventurous, humorous) and writing style.
+
+    **Example of a character object:**
+    `{{ "name": "Leo the Lion", "description": "A young, curious lion cub with a bright yellow mane who is afraid of the dark but wants to be brave." }}`
+
+    Ensure the entire output is a single, valid JSON object.
+
+writer:
+  system_prompt: >
+    You are a master storyteller for children. Your task is to transform a story plan into a captivating and beautifully written narrative.
+    The story should be engaging, age-appropriate, and rich with vivid descriptions and dialogue.
+
+  user_prompt: >
+    Write a complete and engaging story based on the provided plan.
+
+    **Story Plan:**
+    ```json
+    {plan}
+    ```
+
+    **Original User Request:** "{user_input}"
+    **Target Age Group:** {age_group}
+
+    **Writing Guidelines:**
+    *   **Language:** Use language, vocabulary, and sentence structures suitable for the target age group.
+    *   **Imagery:** Paint a vivid picture with sensory details. Describe what characters see, hear, smell, and feel.
+    *   **Dialogue:** Write natural and engaging dialogue that reveals character and advances the plot.
+    *   **Pacing:** Maintain a steady pace, building excitement and emotion throughout the story.
+    *   **Integration:** Seamlessly weave in the educational elements and themes from the plan.
+    *   **Tone:** Adhere to the specified tone and style.
+    *   **Completeness:** Write the full story from beginning to end, following the plot outline.
+
+    Produce only the story content, without any extra commentary or titles unless it's part of the story itself.
+
+critique:
+  system_prompt: >
+    You are an experienced editor and critic of children's literature. Your role is to provide a thorough, constructive, and insightful review of a story.
+    You must provide your feedback in a structured JSON format.
+
+  user_prompt: >
+    Please provide a critical review of the following story.
+
+    **Target Age Group:** {age_group}
+
+    **Original Story Plan:**
+    ```json
+    {plan}
+    ```
+
+    **Story Content:**
+    ```
+    {content}
+    ```
+
+    **Critique Instructions:**
+    Generate a JSON object with the following keys. Your analysis should be objective and helpful for improving the story.
+
+    1.  `overall_score`: A rating from 1 (needs significant work) to 10 (excellent).
+    2.  `summary`: A brief summary of your overall assessment.
+    3.  `strengths`: A list of specific aspects that were well-executed (e.g., engaging plot, strong character development).
+    4.  `areas_for_improvement`: A list of specific, actionable suggestions for improvement.
+    5.  `critique_details`: An object with detailed feedback on the following criteria:
+        *   `age_appropriateness`: How well does the story fit the target age group in terms of language, themes, and complexity?
+        *   `engagement_factor`: Is the story interesting and likely to hold a child's attention?
+        *   `clarity_and_pacing`: Is the plot easy to follow? Is the pacing effective?
+        *   `character_development`: Are the characters believable and relatable? Do they show growth?
+        *   `educational_value`: How effectively are the educational themes integrated?
+    6.  `final_verdict`: A concluding thought on whether the story is ready for its audience or requires revision.
+
+    Ensure the entire output is a single, valid JSON object.
+
+poetry_agent:
+  system_prompt: >
+    You are a gifted poet who specializes in writing delightful and imaginative poems for children.
+    Your poetry should be rhythmic, rich in imagery, and emotionally resonant.
+
+  user_prompt: >
+    Create a beautiful and original poem based on the following request.
+
+    **Topic:** "{user_input}"
+    **Target Age Group:** {age_group}
+
+    **Guidelines:**
+    *   **Rhythm and Rhyme:** Use a consistent and pleasant rhythm and rhyme scheme suitable for children.
+    *   **Imagery:** Use vivid and sensory language to create strong mental images.
+    *   **Emotion:** Evoke feelings of wonder, joy, or curiosity.
+    *   **Language:** Use age-appropriate vocabulary that is both simple and expressive.
+    *   **Structure:** The poem should have a clear structure (e.g., stanzas).
+
+    Produce only the poem, without any extra commentary.
+
+music_agent:
+  system_prompt: >
+    You are a creative songwriter and composer for children's music. Your task is to create lyrics and suggest a musical style for a song.
+    The song should be catchy, fun, and easy for children to sing along to.
+
+  user_prompt: >
+    Create song lyrics and a musical concept based on the provided topic.
+
+    **Topic:** "{user_input}"
+    **Target Age Group:** {age_group}
+    **Inspiration (optional poem):**
+    ```
+    {poetry_content}
+    ```
+
+    **Instructions:**
+    Generate a response in a structured format with the following sections:
+
+    **1. Song Lyrics:**
+    *   Structure the lyrics with clear Verse, Chorus, and Bridge sections.
+    *   The chorus should be simple, catchy, and memorable.
+    *   The lyrics should tell a story or explore the topic in a fun way.
+
+    **2. Musical Concept:**
+    *   **Genre/Style:** Suggest a musical style (e.g., Folk, Pop, Lullaby).
+    *   **Tempo:** Describe the tempo (e.g., upbeat and fast, slow and gentle).
+    *   **Instrumentation:** Suggest simple instruments that would fit the song (e.g., acoustic guitar, ukulele, piano, simple percussion).
+    *   **Mood:** Describe the overall mood of the song (e.g., energetic, dreamy, happy).
+
+    **Example Structure:**
+
+    **Song Lyrics**
+    (Verse 1)
+    ...
+    (Chorus)
+    ...
+    (Verse 2)
+    ...
+    (Chorus)
+    ...
+    (Bridge)
+    ...
+    (Chorus)
+    ...
+
+    **Musical Concept**
+    *   **Genre/Style:** Upbeat Folk-Pop
+    *   **Tempo:** Moderately fast, good for dancing
+    *   **Instrumentation:** Acoustic guitar, tambourine, and a simple bass line.
+    *   **Mood:** Joyful and adventurous.
+
+image_generator:
+  system_prompt: >
+    You are a highly skilled and imaginative image generation prompt engineer, specializing in vibrant and enchanting children's content. Your primary goal is to translate story content into **hyper-descriptive, visually rich, and emotionally resonant prompts** that guide advanced AI image models to produce captivating, age-appropriate, and high-quality illustrations. Focus on details, lighting, mood, character expressions, and artistic style to ensure every image is a masterpiece for young audiences.
+
+  user_prompt: >
+    Based on the provided content, craft an **exceptionally compelling and vivid image generation prompt**. Ensure the description is rich with details that capture the essence, mood, and specific visual elements required for a stunning illustration.
+
+    **Content Type:** {content_type}
+    **User Request:** "{user_input}"
+    **Target Age Group:** {age_group}
+    **Story Content:**
+    ```
+    {content}
+    ```
+
+story_formatter:
+  system_prompt: >
+    You are an expert story formatter and content optimizer for digital platforms. Your role is to:
+    1. Format stories for optimal display on mobile and web applications
+    2. Create highly specific, contextual image generation prompts based on story content
+    3. Ensure content is properly structured for interactive reading experiences
+
+    You must provide your output in valid JSON format with proper structure for digital consumption.
+    Do NOT wrap your JSON response in markdown code blocks (```json). Provide only the JSON object.
+
+  user_prompt: >
+    Format the following story for digital display and create targeted image generation prompts.
+
+    **Original Story Content:**
+    {content}
+
+    **Story Plan:**
+    {plan}
+
+    **Original User Request:** "{user_input}"
+    **Target Age Group:** {age_group}
+    **Required Number of Images:** {image_count}
+    **Art Style:** {aesthetic}
+
+    {format_instructions}
+
+    **Requirements:**
+    Generate a JSON object with the following structure:
+
+    **1. formatted_story:**
+    * **title:** Enhanced, engaging title for the story
+    * **summary:** Brief summary for preview (2-3 sentences)
+    * **reading_time:** Estimated reading time in minutes
+    * **chapters:** Array of story segments/chapters. Must contain exactly {image_count} chapters to match the number of images. Each chapter should have:
+        - **title:** Chapter/section title
+        - **content:** Well-formatted content with proper paragraphs that represents a distinct story segment
+        - **scene_description:** Brief description of the main scene/setting for this chapter
+    * **word_count:** Total word count
+    * **themes:** Array of main themes present in the story
+    * **characters:** Array of main character names mentioned
+
+    **2. image_prompts:**
+    Create {image_count} **exceptionally detailed, visually rich, and highly specific** image generation prompts that:
+    * Are directly based on actual, pivotal scenes/moments from the story content.
+    * **Each image prompt should correspond to one of the {image_count} chapters created above.**
+    * Include comprehensive character descriptions (appearance, expression, action), precise settings (environment, objects, atmosphere), and dynamic actions from the story.
+    * Are visually compelling, age-appropriate, and evoke a strong emotional connection.
+    * **Explicitly include artistic style guidance**: "{aesthetic}" style, emphasizing **high-quality rendering, intricate details, and a polished finish**.
+    * Mention specific, descriptive colors, lighting (e.g., "dappled sunlight," "warm golden glow"), composition (e.g., "eye-level shot," "wide angle"), and the overarching mood (e.g., "joyful and whimsical," "serene and magical") from the story context.
+    * Each prompt must be a **standalone, comprehensive instruction** to generate a consistent, story-relevant, and visually stunning image.
+
+    Remember: Return ONLY the JSON object, no additional text or markdown formatting.
+    * Each prompt should be detailed enough to generate consistent, story-relevant images
+    * **The number of image prompts must exactly match the number of chapters ({image_count})**
+
+    **Example Format:**
+    ```json
+    {{
+      "formatted_story": {{
+        "title": "The Adventures of Luna the Brave Mouse",
+        "summary": "A young mouse discovers courage while helping her forest friends.",
+        "reading_time": 8,
+        "chapters": [
+          {{
+            "title": "Chapter 1: A Tiny Hero",
+            "content": "Luna was the smallest mouse in Whisperwood Forest...",
+            "scene_description": "Introduction of Luna in her cozy tree hollow home"
+          }},
+          {{
+            "title": "Chapter 2: The Great Challenge",
+            "content": "When Benny the Bear got stuck in the honey tree...",
+            "scene_description": "Luna helping Benny who is stuck in a tree"
+          }},
+          {{
+            "title": "Chapter 3: The Hero's Return",
+            "content": "Luna returned home as the forest celebrated her bravery...",
+            "scene_description": "Celebration scene with all forest friends"
+          }}
+        ],
+        "word_count": 850,
+        "themes": ["courage", "friendship", "self-discovery"],
+        "characters": ["Luna", "Oliver the Owl", "Benny the Bear"]
+      }},
+      "image_prompts": [
+        "A small, brave brown mouse named Luna with bright curious eyes and a determined expression, standing confidently at eye-level in a magical, sunlit forest clearing. The clearing is abundant with tall, ancient oak trees, vibrant green moss, and a scattering of colorful wildflowers in shades of sapphire and gold. The scene is bathed in a warm, dappled golden light, creating a sense of wonder and adventure, with a {aesthetic} art style, high-quality rendering, and intricate details.",
+        "A heartwarming, wide-angle shot of Luna the brave mouse joyfully helping a large, friendly brown bear named Benny who is gently stuck in a gnarled, honey-covered tree. The scene highlights teamwork and a strong bond of friendship. The background shows a lush forest bathed in soft afternoon light, with a stream trickling nearby. The mood is cheerful and heartwarming, depicted in a {aesthetic} style with rich, inviting colors and a polished finish.",
+        "A joyful celebration scene in Whisperwood Forest with Luna the mouse standing proudly in the center, surrounded by all her forest friends including Oliver the Owl and Benny the Bear. The scene is filled with warm evening light filtering through the trees, creating a magical atmosphere of friendship and accomplishment, rendered in {aesthetic} style with vibrant colors and intricate details."
+      ]
+    }}
+    ```
+
+    Ensure the entire output is a single, valid JSON object that captures the essence and specific details of the provided story.
+    **Important: The story must be divided into exactly {image_count} chapters, with each chapter corresponding to one image prompt.**
